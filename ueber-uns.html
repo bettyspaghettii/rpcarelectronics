@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="de" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Über uns – RPCarElectronics – Robert Posa</title>
+  <link rel="icon" type="image/png" href="Logo (2).png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Gleicher Übergang wie auf der Startseite */
+    #main-header, #logo-container { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+    .scrolled { height: 100px !important; }
+    .scrolled #logo-container { transform: translate(-52%, -52%) !important; }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3 { font-family: 'Montserrat', sans-serif !important; }
+  </style>
+</head>
+
+<body class="h-full bg-[#f5f0e6] text-gray-900 overflow-auto">
+
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-[280px] sm:w-[350px] bg-white/95 backdrop-blur-md z-[100] flex flex-col items-center justify-center gap-8 text-xl font-bold uppercase tracking-widest shadow-2xl border-l border-black/5 transform translate-x-full transition-transform duration-500 ease-in-out">
+    <button onclick="toggleMobileMenu()" class="absolute top-8 right-8 p-2 hover:bg-gray-100 rounded-full transition">
+      <i data-lucide="x" class="w-8 h-8 text-gray-900"></i>
+    </button>
+    
+    <a href="ueber-uns.html" onclick="toggleMobileMenu()" class="text-cyan-400 transition">Über Uns</a>
+    <a href="Einsatzgebiet.html" onclick="toggleMobileMenu()" class="text-[#334155] hover:text-cyan-600 transition">Einsatzgebiet</a>
+   
+
+
+  <div class="flex flex-col gap-3 mt-8 w-full px-10">
+  
+  <a href="tel:+491786724718" class="bg-[#334155] text-white w-full py-4 rounded-2xl flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-widest hover:bg-[#1F2040] transition shadow-lg">
+    <i data-lucide="phone" class="w-5 h-5 text-white"></i> 
+    Anrufen
+  </a>
+
+  <a href="https://wa.me/491786724718?text=Hallo%20Robert,%20ich%20habe%20ein%20Problem%20mit%20meinem%20Autoschlüssel" target="_blank" class="bg-[#25D366] text-white w-full py-4 rounded-2xl flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-widest hover:bg-[#128C7E] transition shadow-lg">
+    <i data-lucide="message-circle" class="w-5 h-5 text-white"></i> 
+    WhatsApp
+  </a>
+
+</div>
+  </div>
+  <div id="menu-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-black/20 z-[90] opacity-0 pointer-events-none transition-opacity duration-500"></div>
+
+  <div id="app-wrapper" class="w-full min-h-full flex flex-col">
+    
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-black/5" style="height: 140px;">
+      <nav class="max-w-6xl w-full mx-auto px-4 flex items-center justify-between relative h-full">
+        <a href="index.html" id="logo-container" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 block">
+          <img id="logo-img" src="RP1.png" alt="Logo" style="height: 320px; width: auto;" class="object-contain drop-shadow-xl">
+        </a>
+        <div class="ml-auto">
+          <button class="p-2 hover:bg-gray-100 rounded-lg transition" onclick="toggleMobileMenu()">
+            <i data-lucide="menu" class="w-8 h-8 text-[#334155]"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex-1 pt-[140px]"> <section class="relative bg-[#334155] text-white py-24 px-6 overflow-hidden">
+        <img src="werkstatt-hintergrund.jpg" alt="Werkstatt Robert Posa" class="absolute inset-0 w-full h-full object-cover opacity-20">
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+          <span class="inline-block bg-white/10 text-cyan-400 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest mb-4">Inhabergeführt & Kompetent</span>
+          <h1 class="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4">Robert Posa <span class="text-white/60">stellt sich vor</span></h1>
+          <p class="text-xl text-gray-200 max-w-2xl mx-auto italic">RPCarElectronics – Ihr ehrlicher Experte für Automobilelektronik in Bad Berneck.</p>
+        </div>
+      </section>
+
+      <section class="max-w-6xl mx-auto py-20 px-6">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-16 items-center">
+          
+          <div class="md:col-span-3 space-y-6 text-lg text-gray-700 leading-relaxed font-medium">
+            <h2 class="text-3xl font-bold uppercase tracking-tight text-[#334155] mb-8 border-b-2 border-cyan-500 pb-2 inline-block">Über uns</h2>
+            
+            <p><strong>RPCarElectronics</strong> ist ein inhabergeführtes Unternehmen mit Schwerpunkt auf dem spezialisierten Autoschlüssel-Service. Ich kümmere mich persönlich um das <strong>Nachmachen, Programmieren und Reparieren</strong> von Autoschlüsseln und Funkschlüsseln.</p>
+            
+            <p>In meiner Arbeit lege ich größten Wert auf saubere Ausführung, transparente Abläufe und ehrlichen, persönlichen Kontakt. Ziel ist es, Ihnen praktische Lösungen rund um Ihren Fahrzeugschlüssel zu bieten – ohne unnötige Versprechen, sondern zuverlässig und nachvollziehbar.</p>
+            
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4 mt-10">
+              <div class="bg-cyan-500/10 p-3 rounded-full text-cyan-600 shrink-0"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
+              <div>
+                <p class="font-bold text-[#334155]">Unser Standort</p>
+                <p class="text-sm text-gray-600">Wir befinden uns in <strong>Bad Berneck im Fichtelgebirge</strong>. Termine erfolgen nach Vereinbarung.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:col-span-2 space-y-6">
+            <div class="bg-white p-2 rounded-[2rem] shadow-xl border border-gray-100 transform rotate-1">
+              <img src="robert-bei-der-arbeit.jpg" alt="Robert Posa bei der Arbeit" class="w-full h-72 object-cover rounded-[1.8rem]">
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-white p-2 rounded-2xl shadow-lg border border-gray-100 transform -rotate-2">
+                <img src="Autoschlüssel.jpg" alt="Autoschlüssel Nahaufnahme" class="w-full h-40 object-cover rounded-xl">
+              </div>
+              <div class="bg-white p-2 rounded-2xl shadow-lg border border-gray-100 transform rotate-3">
+                <img src="Fräse.jpeg" alt="CNC Fräse bei der Arbeit" class="w-full h-40 object-cover rounded-xl">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="max-w-3xl mx-auto py-16 px-6 text-center border-t border-black/5 mb-16">
+        <h3 class="text-2xl font-bold uppercase mb-4 text-[#334155]">Brauchen Sie einen Termin?</h3>
+        <p class="text-gray-600 mb-10 max-w-xl mx-auto">Egal ob Ersatzschlüssel, Reparatur oder Notöffnung – rufen Sie mich an, und wir finden eine schnelle Lösung.</p>
+        <a href="tel:+491786724718" class="inline-flex items-center gap-4 bg-cyan-500 hover:bg-cyan-400 text-white font-black py-5 px-12 rounded-2xl transition-all uppercase tracking-[0.1em] text-lg shadow-xl hover:shadow-cyan-500/20 hover:scale-[1.03]">
+          <i data-lucide="phone-call" class="w-7 h-7 animate-bounce"></i>
+          Jetzt Termin vereinbaren
+        </a>
+      </section>
+
+    </main>
+
+    <footer class="w-full py-10 border-t border-black/5 text-gray-500 bg-white">
+      <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-center items-center gap-6 text-sm uppercase tracking-widest font-medium">
+        <a href="impressum.html" class="hover:text-[#0A2540] transition">Impressum</a>
+        <span class="hidden md:block text-gray-300">|</span>
+        <a href="datenschutz.html" class="hover:text-[#0A2540] transition">Datenschutz</a>
+        <span class="md:ml-auto normal-case tracking-normal text-gray-400">© 2026 RPCarElectronics</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Gleiches Script wie auf der Startseite für Header und Burger-Menü
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('main-header');
+      if (window.scrollY > 50) { header.classList.add('scrolled'); } 
+      else { header.classList.remove('scrolled'); }
+    });
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById("mobile-menu");
+      const overlay = document.getElementById("menu-overlay");
+      menu.classList.toggle("translate-x-full");
+      if (menu.classList.contains("translate-x-full")) {
+        overlay.classList.add("opacity-0", "pointer-events-none");
+        document.body.style.overflow = "auto";
+      } else {
+        overlay.classList.remove("opacity-0", "pointer-events-none");
+        overlay.classList.add("opacity-100");
+        document.body.style.overflow = "hidden";
+      }
+    }
+    lucide.createIcons();
+  </script>
+</body>
+</html>

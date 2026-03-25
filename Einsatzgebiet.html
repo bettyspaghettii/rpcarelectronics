@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="de" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Einsatzgebiet – RPCarElectronics – Bayreuth & Umgebung</title>
+  <link rel="icon" type="image/png" href="Logo (2).png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    #main-header, #logo-container { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+    .scrolled { height: 100px !important; }
+    .scrolled #logo-container { transform: translate(-52%, -52%) !important; }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3 { font-family: 'Montserrat', sans-serif !important; }
+  </style>
+</head>
+
+<body class="h-full bg-[#f5f0e6] text-gray-900 overflow-auto">
+
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-[280px] sm:w-[350px] bg-white/95 backdrop-blur-md z-[100] flex flex-col items-center justify-center gap-8 text-xl font-bold uppercase tracking-widest shadow-2xl border-l border-black/5 transform translate-x-full transition-transform duration-500 ease-in-out">
+    <button onclick="toggleMobileMenu()" class="absolute top-8 right-8 p-2 hover:bg-gray-100 rounded-full transition">
+      <i data-lucide="x" class="w-8 h-8 text-gray-900"></i>
+    </button>
+    <a href="ueber-uns.html" onclick="toggleMobileMenu()" class="text-[#334155] hover:text-cyan-600 transition">Über Uns</a>
+    <a href="einsatzgebiet.html" onclick="toggleMobileMenu()" class="text-cyan-600 transition">Einsatzgebiet</a>
+    <div class="flex flex-col gap-3 mt-4">
+      <a href="tel:+491786724718" class="bg-[#334155] text-white px-8 py-3 rounded-xl flex items-center justify-center gap-2 text-sm shadow-lg hover:bg-[#0A2540] transition">
+        <i data-lucide="phone" class="w-4 h-4"></i> Anrufen
+      </a>
+      <a href="https://wa.me/491786724718" target="_blank" class="bg-[#25D366] text-white px-8 py-3 rounded-xl flex items-center justify-center gap-2 text-sm shadow-lg hover:bg-[#128C7E] transition">
+        <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
+      </a>
+    </div>
+  </div>
+  <div id="menu-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-black/20 z-[90] opacity-0 pointer-events-none transition-opacity duration-500"></div>
+
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-black/5" style="height: 140px;">
+    <nav class="max-w-6xl w-full mx-auto px-4 flex items-center justify-between relative h-full">
+      <a href="index.html" id="logo-container" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 block">
+        <img id="logo-img" src="RP1.png" alt="Logo" style="height: 320px; width: auto;" class="object-contain drop-shadow-xl">
+      </a>
+      <div class="ml-auto">
+        <button class="p-2 hover:bg-gray-100 rounded-lg transition" onclick="toggleMobileMenu()">
+          <i data-lucide="menu" class="w-8 h-8 text-[#334155]"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-1 pt-[140px]">
+    
+    <section class="bg-[#334155] text-white py-20 px-6">
+      <div class="max-w-5xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4">Einsatzgebiet <br><span class="text-cyan-400">& 24h Notdienst</span></h1>
+        <p class="text-lg text-gray-300 max-w-2xl mx-auto">Unser mobiler Kfz-Schlüsseldienst ist rund um die Uhr für Sie in Bayreuth und Umgebung im Einsatz.</p>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto py-16 px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        
+        <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-gray-100">
+          <h2 class="text-2xl font-bold text-[#334155] uppercase mb-8 flex items-center gap-3">
+            <i data-lucide="map-pinned" class="text-cyan-500"></i> Wir helfen in:
+          </h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg font-semibold text-gray-700">
+            <div class="flex items-center gap-3 bg-[#f5f0e6] p-4 rounded-xl hover:bg-cyan-50 transition"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-500"></i> Bayreuth</div>
+            <div class="flex items-center gap-3 bg-[#f5f0e6] p-4 rounded-xl hover:bg-cyan-50 transition"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-500"></i> Bad Berneck</div>
+            <div class="flex items-center gap-3 bg-[#f5f0e6] p-4 rounded-xl hover:bg-cyan-50 transition"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-500"></i> Bindlach</div>
+            <div class="flex items-center gap-3 bg-[#f5f0e6] p-4 rounded-xl hover:bg-cyan-50 transition"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-500"></i> Mistelgau</div>
+            <div class="flex items-center gap-3 bg-[#f5f0e6] p-4 rounded-xl hover:bg-cyan-50 transition"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-500"></i> Kulmbach</div>
+            <div class="flex items-center gap-3 bg-[#f5f0e6] p-4 rounded-xl hover:bg-cyan-50 transition"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-500"></i> Pegnitz</div>
+          </div>
+
+          <div class="mt-8 p-6 bg-[#334155] text-white rounded-2xl flex items-center justify-between">
+            <p class="font-bold uppercase tracking-widest text-sm">Sowie im Umkreis von ca. 100 km</p>
+            <i data-lucide="navigation" class="w-6 h-6 text-cyan-400"></i>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <div class="bg-red-400 text-white p-10 rounded-[2.5rem] shadow-xl relative overflow-hidden">
+            <div class="relative z-10">
+              <h3 class="text-3xl font-black uppercase mb-4 tracking-tighter italic">24h Notdienst</h3>
+              <p class="text-lg opacity-90 leading-relaxed">Auch nachts, am Wochenende & an Feiertagen sind wir für Sie erreichbar. Bei Notöffnungen lassen wir Sie nicht im Regen stehen.</p>
+              <a href="tel:+491786724718" class="mt-8 inline-flex items-center gap-3 bg-white text-red-600 px-8 py-4 rounded-xl font-black uppercase text-sm shadow-lg hover:scale-105 transition">
+                <i data-lucide="phone-call" class="w-5 h-5 animate-bounce"></i> Jetzt Hilfe rufen
+              </a>
+            </div>
+            <i data-lucide="clock" class="absolute -bottom-10 -right-10 w-48 h-48 opacity-10"></i>
+          </div>
+
+          <div class="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-sm flex items-center gap-6">
+            <div class="bg-cyan-100 p-4 rounded-2xl text-cyan-600"><i data-lucide="calendar" class="w-8 h-8"></i></div>
+            <div>
+              <p class="text-sm uppercase font-bold text-gray-400 tracking-widest">Wichtig</p>
+              <p class="text-xl font-bold text-[#334155]">Termine nach Vereinbarung</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="w-full py-10 border-t border-black/5 text-gray-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-center items-center gap-6 text-sm uppercase tracking-widest font-medium">
+      <a href="impressum.html" class="hover:text-[#334155] transition">Impressum</a>
+      <span class="hidden md:block text-gray-300">|</span>
+      <a href="datenschutz.html" class="hover:text-[#334155] transition">Datenschutz</a>
+      <span class="md:ml-auto normal-case tracking-normal text-gray-400">© 2026 RPCarElectronics</span>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('main-header');
+      if (window.scrollY > 50) { header.classList.add('scrolled'); } 
+      else { header.classList.remove('scrolled'); }
+    });
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById("mobile-menu");
+      const overlay = document.getElementById("menu-overlay");
+      menu.classList.toggle("translate-x-full");
+      if (menu.classList.contains("translate-x-full")) {
+        overlay.classList.add("opacity-0", "pointer-events-none");
+        document.body.style.overflow = "auto";
+      } else {
+        overlay.classList.remove("opacity-0", "pointer-events-none");
+        overlay.classList.add("opacity-100");
+        document.body.style.overflow = "hidden";
+      }
+    }
+    lucide.createIcons();
+  </script>
+</body>
+</html>
