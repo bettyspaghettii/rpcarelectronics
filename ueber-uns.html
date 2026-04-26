@@ -12,12 +12,96 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    /* Gleicher Übergang wie auf der Startseite */
     #main-header, #logo-container { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
     .scrolled { height: 100px !important; }
     .scrolled #logo-container { transform: translate(-52%, -52%) !important; }
     body { font-family: 'Inter', sans-serif; }
     h1, h2, h3 { font-family: 'Montserrat', sans-serif !important; }
+
+    /* ── Slider ── */
+    .gallery-track {
+      display: flex;
+      gap: 20px;
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
+      transition: transform 0.05s linear;
+    }
+    .gallery-track:active { cursor: grabbing; }
+    .gallery-slide {
+      flex: 0 0 auto;
+      width: 320px;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+      background: #1a2535;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    @media (max-width: 640px) {
+      .gallery-slide { width: 260px; }
+    }
+    .gallery-slide:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+    }
+    .gallery-slide img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .gallery-slide:hover img { transform: scale(1.06); }
+    .gallery-slide .caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 18px 16px 14px;
+      background: linear-gradient(to top, rgba(15,25,40,0.92) 0%, transparent 100%);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .gallery-slide:hover .caption { opacity: 1; transform: translateY(0); }
+
+    /* scroll arrows */
+    .slider-btn {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: #334155;
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      border: none;
+      flex-shrink: 0;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    }
+    .slider-btn:hover { background: #06b6d4; transform: scale(1.08); }
+
+    /* hide scrollbar on the overflow container */
+    .slider-viewport {
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* auto-scroll fade edges */
+    .slider-viewport::before,
+    .slider-viewport::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 48px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .slider-viewport::before { left: 0; background: linear-gradient(to right, #f5f0e6, transparent); }
+    .slider-viewport::after  { right: 0; background: linear-gradient(to left, #f5f0e6, transparent); }
   </style>
 </head>
 
@@ -27,30 +111,21 @@
     <button onclick="toggleMobileMenu()" class="absolute top-8 right-8 p-2 hover:bg-gray-100 rounded-full transition">
       <i data-lucide="x" class="w-8 h-8 text-gray-900"></i>
     </button>
-    
     <a href="ueber-uns.html" onclick="toggleMobileMenu()" class="text-cyan-400 transition">Über Uns</a>
     <a href="Einsatzgebiet.html" onclick="toggleMobileMenu()" class="text-[#334155] hover:text-cyan-600 transition">Einsatzgebiet</a>
-   
-
-
-  <div class="flex flex-col gap-3 mt-8 w-full px-10">
-  
-  <a href="tel:+491786724718" class="bg-[#334155] text-white w-full py-4 rounded-2xl flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-widest hover:bg-[#1F2040] transition shadow-lg">
-    <i data-lucide="phone" class="w-5 h-5 text-white"></i> 
-    Anrufen
-  </a>
-
-  <a href="https://wa.me/491786724718?text=Hallo%20Robert,%20ich%20habe%20ein%20Problem%20mit%20meinem%20Autoschlüssel" target="_blank" class="bg-[#25D366] text-white w-full py-4 rounded-2xl flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-widest hover:bg-[#128C7E] transition shadow-lg">
-    <i data-lucide="message-circle" class="w-5 h-5 text-white"></i> 
-    WhatsApp
-  </a>
-
-</div>
+    <div class="flex flex-col gap-3 mt-8 w-full px-10">
+      <a href="tel:+491786724718" class="bg-[#334155] text-white w-full py-4 rounded-2xl flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-widest hover:bg-[#1F2040] transition shadow-lg">
+        <i data-lucide="phone" class="w-5 h-5 text-white"></i> Anrufen
+      </a>
+      <a href="https://wa.me/491786724718?text=Hallo%20Robert,%20ich%20habe%20ein%20Problem%20mit%20meinem%20Autoschl%C3%BCssel" target="_blank" class="bg-[#25D366] text-white w-full py-4 rounded-2xl flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-widest hover:bg-[#128C7E] transition shadow-lg">
+        <i data-lucide="message-circle" class="w-5 h-5 text-white"></i> WhatsApp
+      </a>
+    </div>
   </div>
   <div id="menu-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-black/20 z-[90] opacity-0 pointer-events-none transition-opacity duration-500"></div>
 
   <div id="app-wrapper" class="w-full min-h-full flex flex-col">
-    
+
     <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-black/5" style="height: 140px;">
       <nav class="max-w-6xl w-full mx-auto px-4 flex items-center justify-between relative h-full">
         <a href="index.html" id="logo-container" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 block">
@@ -64,7 +139,10 @@
       </nav>
     </header>
 
-    <main class="flex-1 pt-[140px]"> <section class="relative bg-[#334155] text-white py-24 px-6 overflow-hidden">
+    <main class="flex-1 pt-[140px]">
+
+      <!-- Hero -->
+      <section class="relative bg-[#334155] text-white py-24 px-6 overflow-hidden">
         <img src="Robert Portrait.jpeg" alt="Werkstatt Robert Posa" class="absolute inset-0 w-full h-full object-cover opacity-20">
         <div class="max-w-5xl mx-auto text-center relative z-10">
           <span class="inline-block bg-white/10 text-cyan-400 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest mb-4">Inhabergeführt & Kompetent</span>
@@ -73,16 +151,13 @@
         </div>
       </section>
 
+      <!-- Über uns Text + Bilder -->
       <section class="max-w-6xl mx-auto py-20 px-6">
         <div class="grid grid-cols-1 md:grid-cols-5 gap-16 items-center">
-          
           <div class="md:col-span-3 space-y-6 text-lg text-gray-700 leading-relaxed font-medium">
             <h2 class="text-3xl font-bold uppercase tracking-tight text-[#334155] mb-8 border-b-2 border-cyan-500 pb-2 inline-block">Über uns</h2>
-            
             <p><strong>RPCarElectronics</strong> ist ein inhabergeführtes Unternehmen mit Schwerpunkt auf dem spezialisierten Autoschlüssel-Service. Ich kümmere mich persönlich um das <strong>Nachmachen, Programmieren und Reparieren</strong> von Autoschlüsseln und Funkschlüsseln.</p>
-            
             <p>In meiner Arbeit lege ich größten Wert auf saubere Ausführung, transparente Abläufe und ehrlichen, persönlichen Kontakt. Ziel ist es, Ihnen praktische Lösungen rund um Ihren Fahrzeugschlüssel zu bieten – ohne unnötige Versprechen, sondern zuverlässig und nachvollziehbar.</p>
-            
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4 mt-10">
               <div class="bg-cyan-500/10 p-3 rounded-full text-cyan-600 shrink-0"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
               <div>
@@ -105,10 +180,77 @@
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
+      <!-- ════════════════════════════════════════
+           NEUE GALERIE-SEKTION mit Swipe-Slider
+           ════════════════════════════════════════ -->
+      <section class="py-16 bg-white border-t border-b border-black/5">
+        <div class="max-w-6xl mx-auto px-6">
+
+          <!-- Heading -->
+          <div class="flex items-end justify-between mb-10 gap-4 flex-wrap">
+            <div>
+              <span class="inline-block text-cyan-500 text-xs font-bold uppercase tracking-widest mb-2">Einblicke</span>
+              <h2 class="text-3xl font-black uppercase tracking-tight text-[#334155]">Aus unserer Werkstatt</h2>
+            </div>
+            <!-- Arrow buttons (desktop) -->
+            <div class="flex gap-3 items-center" id="slider-controls">
+              <button class="slider-btn" id="btn-prev" aria-label="Zurück">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+              </button>
+              <button class="slider-btn" id="btn-next" aria-label="Weiter">
+                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Slider -->
+          <div class="slider-viewport rounded-2xl" id="slider-viewport">
+            <div class="gallery-track" id="gallery-track">
+
+              <!-- Slide 1 – Steuergerät / Platine -->
+              <div class="gallery-slide">
+                <img src="Elektronik.jpeg" alt="Steuergerät Platine">
+                <div class="caption">Steuergerät-Analyse</div>
+              </div>
+
+              <!-- Slide 2 – Mercedes mit Schlüssel -->
+              <div class="gallery-slide">
+                <img src="Auto.jpeg" alt="Mercedes mit Funkschlüssel">
+                <div class="caption">Mercedes Schlüssel-Programmierung</div>
+              </div>
+
+              <!-- Slide 3 – Autel Diagnosegerät + FEM -->
+              <div class="gallery-slide">
+                <img src="Tablet.jpeg" alt="Diagnosegerät & FEM-Modul">
+                <div class="caption">Profi-Diagnosetechnik</div>
+              </div>
+
+              <!-- Slide 4 – BMW FEM + Schlüssel auf Tisch -->
+              <div class="gallery-slide">
+                <img src="schlüssel_programmierren.jpeg" alt="BMW FEM Modul mit Schlüsseln">
+                <div class="caption">BMW FEM Schlüssel-Codierung</div>
+              </div>
+
+              <!-- Slide 5 – BMW Schlüssel vor Lenkrad -->
+              <div class="gallery-slide">
+                <img src="Schlüsselll.jpeg" alt="BMW Schlüssel vor Lenkrad">
+                <div class="caption">Neuer & Original BMW Schlüssel</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Dots -->
+          <div class="flex justify-center gap-2 mt-6" id="dots-container"></div>
+
+        </div>
+      </section>
+      <!-- ════════ Ende Galerie ════════ -->
+
+      <!-- CTA -->
       <section class="max-w-3xl mx-auto py-16 px-6 text-center border-t border-black/5 mb-16">
         <h3 class="text-2xl font-bold uppercase mb-4 text-[#334155]">Brauchen Sie einen Termin?</h3>
         <p class="text-gray-600 mb-10 max-w-xl mx-auto">Egal ob Ersatzschlüssel, Reparatur oder Notöffnung – rufen Sie mich an, und wir finden eine schnelle Lösung.</p>
@@ -131,13 +273,14 @@
   </div>
 
   <script>
-    // Gleiches Script wie auf der Startseite für Header und Burger-Menü
+    /* ── Header scroll ── */
     window.addEventListener('scroll', function() {
       const header = document.getElementById('main-header');
-      if (window.scrollY > 50) { header.classList.add('scrolled'); } 
-      else { header.classList.remove('scrolled'); }
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
     });
 
+    /* ── Mobile menu ── */
     function toggleMobileMenu() {
       const menu = document.getElementById("mobile-menu");
       const overlay = document.getElementById("menu-overlay");
@@ -151,6 +294,102 @@
         document.body.style.overflow = "hidden";
       }
     }
+
+    /* ── Slider ── */
+    (function() {
+      const track      = document.getElementById('gallery-track');
+      const viewport   = document.getElementById('slider-viewport');
+      const btnPrev    = document.getElementById('btn-prev');
+      const btnNext    = document.getElementById('btn-next');
+      const dotsWrap   = document.getElementById('dots-container');
+      const slides     = track.querySelectorAll('.gallery-slide');
+      const SLIDE_COUNT = slides.length;
+
+      let currentIndex = 0;
+      let isDragging   = false;
+      let startX       = 0;
+      let scrollLeft   = 0;
+      let autoTimer    = null;
+
+      /* build dots */
+      slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'w-2 h-2 rounded-full transition-all duration-300 ' + (i === 0 ? 'bg-cyan-500 w-6' : 'bg-gray-300');
+        d.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(d);
+      });
+
+      function updateDots() {
+        dotsWrap.querySelectorAll('button').forEach((d, i) => {
+          d.className = 'w-2 h-2 rounded-full transition-all duration-300 ' + (i === currentIndex ? 'bg-cyan-500 w-6' : 'bg-gray-300');
+        });
+      }
+
+      function getSlideWidth() {
+        const slide = slides[0];
+        const gap = 20;
+        return slide.offsetWidth + gap;
+      }
+
+      function goTo(index) {
+        currentIndex = Math.max(0, Math.min(index, SLIDE_COUNT - 1));
+        const offset = currentIndex * getSlideWidth();
+        track.style.transition = 'transform 0.45s cubic-bezier(0.4,0,0.2,1)';
+        track.style.transform = `translateX(-${offset}px)`;
+        updateDots();
+      }
+
+      btnNext.addEventListener('click', () => { goTo(currentIndex + 1 >= SLIDE_COUNT ? 0 : currentIndex + 1); resetAuto(); });
+      btnPrev.addEventListener('click', () => { goTo(currentIndex - 1 < 0 ? SLIDE_COUNT - 1 : currentIndex - 1); resetAuto(); });
+
+      /* ── Touch / Mouse drag ── */
+      function pointerStart(x) {
+        isDragging = true;
+        startX = x;
+        scrollLeft = currentIndex * getSlideWidth();
+        track.style.transition = 'none';
+      }
+      function pointerMove(x) {
+        if (!isDragging) return;
+        const delta = startX - x;
+        track.style.transform = `translateX(-${scrollLeft + delta}px)`;
+      }
+      function pointerEnd(x) {
+        if (!isDragging) return;
+        isDragging = false;
+        const delta = startX - x;
+        if (Math.abs(delta) > 50) {
+          goTo(delta > 0 ? currentIndex + 1 : currentIndex - 1);
+        } else {
+          goTo(currentIndex); // snap back
+        }
+        resetAuto();
+      }
+
+      track.addEventListener('mousedown',  e => pointerStart(e.clientX));
+      window.addEventListener('mousemove', e => pointerMove(e.clientX));
+      window.addEventListener('mouseup',   e => pointerEnd(e.clientX));
+
+      track.addEventListener('touchstart', e => pointerStart(e.touches[0].clientX), { passive: true });
+      track.addEventListener('touchmove',  e => pointerMove(e.touches[0].clientX),  { passive: true });
+      track.addEventListener('touchend',   e => pointerEnd(e.changedTouches[0].clientX));
+
+      /* ── Auto-play ── */
+      function startAuto() {
+        autoTimer = setInterval(() => {
+          goTo(currentIndex + 1 >= SLIDE_COUNT ? 0 : currentIndex + 1);
+        }, 3500);
+      }
+      function resetAuto() {
+        clearInterval(autoTimer);
+        startAuto();
+      }
+      startAuto();
+
+      /* re-snap on resize */
+      window.addEventListener('resize', () => goTo(currentIndex));
+    })();
+
     lucide.createIcons();
   </script>
 </body>
